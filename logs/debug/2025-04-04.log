@@ -1,0 +1,37 @@
+2025-04-04 14:29:54 info: =====================================================
+2025-04-04 14:29:54 info: ======= ENV: development ============================
+2025-04-04 14:29:54 info: 🚀 moengage_connector 1 server runnig on port 8563
+2025-04-04 14:29:54 info: =====================================================
+2025-04-04 14:29:55 info: Connected to IORedis
+undefined
+2025-04-04 14:30:35 info: [0mPOST /whatsapp_to_connector/moengage/919899905469 [0m-[0m - ms - -[0m
+undefined
+2025-04-04 14:31:39 info: =====================================================
+2025-04-04 14:31:39 info: ======= ENV: development ============================
+2025-04-04 14:31:39 info: 🚀 moengage_connector 1 server runnig on port 8563
+2025-04-04 14:31:39 info: =====================================================
+2025-04-04 14:31:40 info: Connected to IORedis
+undefined
+2025-04-04 14:39:40 info: =====================================================
+2025-04-04 14:39:40 info: ======= ENV: development ============================
+2025-04-04 14:39:40 info: 🚀 moengage_connector 1 server runnig on port 8563
+2025-04-04 14:39:40 info: =====================================================
+2025-04-04 14:39:41 info: Connected to IORedis
+undefined
+2025-04-04 14:39:58 info: [0mPOST /whatsapp_to_connector/moengage/919899905469 [0m-[0m - ms - -[0m
+2025-04-04 14:40:37 info: =====================================================
+2025-04-04 14:40:37 info: ======= ENV: development ============================
+2025-04-04 14:40:37 info: 🚀 moengage_connector 1 server runnig on port 8563
+2025-04-04 14:40:37 info: =====================================================
+2025-04-04 14:40:37 info: Connected to IORedis
+2025-04-04 14:40:49 info: 919899905469:moengage_send_callback_response_service ::: url: https://80e8f322-dfa6-4e05-9a38-b60b2c821087.mock.pstmn.io/moengage ::: wamid: wamid.HBgMOTE3Mjk3OTYyMTIyFQIAERgSMzJBNTNEMDU0MEZCRkMyNENFAA== ::: payload: {"statuses":[{"msg_id":"67ee485792b846576e34b2cc_677f3537b39e97772cc33719_17436754518","status":"sent","timestamp":"1743675491","error":{"code":"","description":""}}]} ::: response: {"Message":"success"}
+2025-04-04 14:40:49 info: [0mPOST /whatsapp_to_connector/moengage/919899905469 [32m200[0m 7572.301 ms - 31[0m
+2025-04-04 14:48:13 info: =====================================================
+2025-04-04 14:48:13 info: ======= ENV: development ============================
+2025-04-04 14:48:13 info: 🚀 moengage_connector 1 server runnig on port 8563
+2025-04-04 14:48:13 info: =====================================================
+2025-04-04 14:48:14 info: Connected to IORedis
+2025-04-04 14:48:19 info: 919899905469:moengage_send_callback_response_service ::: url: https://80e8f322-dfa6-4e05-9a38-b60b2c821087.mock.pstmn.io/moengage ::: wamid: wamid.HBgMOTE3Mjk3OTYyMTIyFQIAERgSMzJBNTNEMDU0MEZCRkMyNENFAA== ::: payload: {"statuses":[{"msg_id":"67ee485792b846576e34b2cc_677f3537b39e97772cc33719_17436754518","status":"sent","timestamp":"1743675491","error":{"code":"","description":""}}]} ::: response: {"Message":"success"}
+2025-04-04 14:48:19 info: [0mPOST /whatsapp_to_connector/moengage/919899905469 [32m200[0m 1809.716 ms - 31[0m
+2025-04-04 14:48:29 info: 919899905469:moengage_send_callback_response_service ::: url: https://80e8f322-dfa6-4e05-9a38-b60b2c821087.mock.pstmn.io/moengage ::: wamid: wamid.HBgMOTE3Mjk3OTYyMTIyFQIAERgSMzJBNTNEMDU0MEZCRkMyNENFAA== ::: payload: {"statuses":[{"msg_id":"67ee485792b846576e34b2cc_677f3537b39e97772cc33719_17436754518","status":"sent","timestamp":"1743675491","error":{"code":"","description":""}}]} ::: response: {"Message":"success"}
+2025-04-04 14:48:29 info: [0mPOST /whatsapp_to_connector/moengage/919899905469 [32m200[0m 1475.728 ms - 31[0m

@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "/home/ptspl03/Documents/RELAY/Moengage_Relay-Server/logs/error/.3c40001c26160e169587cd5c9bc7360c89ba32ad-audit.json",
+    "files": [
+        {
+            "date": 1743757194588,
+            "name": "/home/ptspl03/Documents/RELAY/Moengage_Relay-Server/logs/error/2025-04-04.log",
+            "hash": "1a747a4f2f9daad612ea8742ad16f3ca92544b70eeafae1fab79deb9e447602e"
+        }
+    ],
+    "hashType": "sha256"
+}
