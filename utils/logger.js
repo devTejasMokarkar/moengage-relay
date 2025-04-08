@@ -1,66 +1,77 @@
+// utils/logger.js
 const { existsSync, mkdirSync } = require("fs");
 const { LOG_DIR } = require("../config");
 const { join } = require("path");
+const os = require("os");
 const winston = require("winston");
 const winstonDaily = require("winston-daily-rotate-file");
 
-// logs dir
+// Create logs directory if it doesn't exist
 const logDir = join(__dirname, LOG_DIR);
-
 if (!existsSync(logDir)) {
-  mkdirSync(logDir);
+  mkdirSync(logDir, { recursive: true });
 }
 
-const logFormat = winston.format.printf(({ timestamp, level, message }) =>(
-level === 'error' ? `${timestamp} ${level}: ${message}`.red : `${timestamp} ${level}: ${message}`)
-);
+// Dynamically fetch current local IP
+function getLocalIp() {
+  const interfaces = os.networkInterfaces();
+  for (const name of Object.keys(interfaces)) {
+    for (const net of interfaces[name]) {
+      if (net.family === 'IPv4' && !net.internal) {
+        return net.address;
+      }
+    }
+  }
+  return 'N/A';
+}
 
-/*
- * Log Level
- * error: 0, warn: 1, info: 2, http: 3, verbose: 4, debug: 5, silly: 6
- */
+// Custom format to inject IP dynamically
+const dynamicIPFormat = winston.format((info) => {
+  info.ip = getLocalIp();
+  return info;
+});
+
+// Final log format
+const logFormat = winston.format.printf(({ timestamp, level, message, ip }) => {
+  return `${timestamp} ${level}: [IP: ${ip}] ${message}`;
+});
 
 const logger = winston.createLogger({
   format: winston.format.combine(
-    winston.format.timestamp({
-      format: 'YYYY-MM-DD HH:mm:ss',
-    }),
+    dynamicIPFormat(),
+    winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
     logFormat,
   ),
   transports: [
-    // debug log setting
     new winstonDaily({
       level: 'debug',
       datePattern: 'YYYY-MM-DD',
-      dirname: logDir + '/debug', // log file /logs/debug/*.log in save
+      dirname: join(logDir, 'debug'),
       filename: `%DATE%.log`,
-      maxFiles: 30, // 30 Days saved
-      json: false,
+      maxFiles: 30,
       zippedArchive: true,
     }),
-    // error log setting
     new winstonDaily({
       level: 'error',
       datePattern: 'YYYY-MM-DD',
-      dirname: logDir + '/error', // log file /logs/error/*.log in save
+      dirname: join(logDir, 'error'),
       filename: `%DATE%.log`,
-      maxFiles: 30, // 30 Days saved
+      maxFiles: 30,
       handleExceptions: true,
-      json: false,
       zippedArchive: true,
+    }),
+    new winston.transports.Console({
+      format: winston.format.combine(
+        winston.format.splat(),
+        winston.format.colorize()
+      ),
     }),
   ],
 });
 
-logger.add(
-  new winston.transports.Console({
-    format: winston.format.combine(winston.format.splat(), winston.format.colorize()),
-  }),
-);
-
 const stream = {
   write: (message) => {
-    logger.info(message.substring(0, message.lastIndexOf('\n')));
+    logger.info(message.trim());
   },
 };
 
